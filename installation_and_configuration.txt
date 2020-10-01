@@ -49,3 +49,20 @@ Channel Drivers --> disabled chan_pjsip
 
 ./contrib/scripts/get_mp3_source.sh 
 make
+
+
+
+make install
+make samples
+make config
+ldconfig
+
+systemctl enable asterisk
+systemctl start asterisk
+
+asterisk -rvvv
+core show version
+
+
+
+======================================================
