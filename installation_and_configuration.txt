@@ -85,4 +85,53 @@ context=default
 qualify=yes
 
 ====================================================
+asterisk -r
+core set verbose 25
 
+
+
+check peers:
+
+sip show peers
+
+sip reload
+
+====
+in extensions:
+
+[internal]
+
+exten => 10,1,Answer
+exten => 10,n,NoOp(this-is-a-sample-context)
+exten => 10,n,Playback(vm-goodbye)
+exten => 10,n,Hangup()
+
+in sip:
+
+[101]
+type=friend
+secret=asterisk
+disallow=all
+allow=ulaw
+host=dynamic
+context=internal
+qualify=yes
+
+
+[102]
+type=friend
+secret=asterisk
+disallow=all
+allow=ulaw
+host=dynamic
+context=internal
+qualify=yes
+
+
+
+
+
+voicemail:
+
+
+ 
