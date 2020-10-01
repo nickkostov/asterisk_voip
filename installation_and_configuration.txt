@@ -1,0 +1,17 @@
+Once you are on the host just do to get the IP address:
+
+hostname -i | awk '{print $1}'
+ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}'
+
+
+vim /etc/selinux/config
+set to disable
+
+systemctl stop firewalld.service
+systemctl disable firewalld.service
+yum -y update
+
+
+yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+
+yum group -y install "Development Tools"
