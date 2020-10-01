@@ -65,4 +65,24 @@ core show version
 
 
 
-======================================================
+=====================================================
+
+
+cp -v /etc/asterisk/sip.conf /etc/asterisk/sip.conf.bak
+
+vim /etc/asterisk/sip.conf
+
+inside bottom write:
+
+; #### Extensions #######
+[101]
+type=friend
+secret=asterisk
+disallow=all
+allow=ulaw
+host=dynamic
+context=default
+qualify=yes
+
+====================================================
+
